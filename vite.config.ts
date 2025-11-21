@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/ProphetLifeUI/", // Replace with your GitHub repo name
+  base: "/ProphetLifeUI/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
