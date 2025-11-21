@@ -10,8 +10,6 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
-      <Route path="/ProphetLifeUI/" component={Home} />
-      <Route path="/ProphetLifeUI/prophet/:id" component={ProphetDetailPage} />
       <Route path="/" component={Home} />
       <Route path="/prophet/:id" component={ProphetDetailPage} />
       <Route component={NotFound} />
