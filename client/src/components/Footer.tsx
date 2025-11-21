@@ -1,6 +1,16 @@
 import { Separator } from "@/components/ui/separator";
 
 export default function Footer() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="border-t bg-card mt-16">
       <div className="container mx-auto px-4 py-12 md:px-6">
@@ -17,17 +27,32 @@ export default function Footer() {
             <h3 className="font-heading text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-home">
+                <a 
+                  href="#" 
+                  onClick={(e) => handleNavClick(e, "#")}
+                  className="text-muted-foreground hover:text-primary transition-colors" 
+                  data-testid="link-footer-home"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#prophets" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-prophets">
+                <a 
+                  href="#prophets" 
+                  onClick={(e) => handleNavClick(e, "#prophets")}
+                  className="text-muted-foreground hover:text-primary transition-colors" 
+                  data-testid="link-footer-prophets"
+                >
                   All Prophets
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-timeline">
+                <a 
+                  href="#timeline" 
+                  onClick={(e) => handleNavClick(e, "#timeline")}
+                  className="text-muted-foreground hover:text-primary transition-colors" 
+                  data-testid="link-footer-timeline"
+                >
                   Timeline
                 </a>
               </li>

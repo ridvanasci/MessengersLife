@@ -2,7 +2,19 @@ import heroPattern from "@assets/generated_images/Islamic_geometric_hero_backgro
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  onSearch?: (query: string) => void;
+}
+
+export default function Hero({ onSearch }: HeroProps) {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onSearch?.(e.target.value);
+    const prophetsSection = document.getElementById("prophets");
+    if (e.target.value && prophetsSection) {
+      prophetsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       className="relative flex min-h-[70vh] items-center justify-center overflow-hidden"
@@ -31,6 +43,7 @@ export default function Hero() {
               placeholder="Search for a prophet..."
               data-testid="input-hero-search"
               className="h-12 pl-10 text-base bg-white/95 backdrop-blur"
+              onChange={handleSearch}
             />
           </div>
         </div>
