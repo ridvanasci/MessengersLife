@@ -73,8 +73,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-islamic-history">
-                  Islamic History
+                <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-privacy">
+                  Privacy Policy
                 </a>
               </li>
             </ul>
