@@ -1,6 +1,9 @@
 import { Separator } from "@/components/ui/separator";
+import { useLocation } from "wouter";
 
 export default function Footer() {
+  const [, setLocation] = useLocation();
+  
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     if (href === "#") {
@@ -9,6 +12,11 @@ export default function Footer() {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: "smooth" });
     }
+  };
+  
+  const handlePrivacyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setLocation("/privacy");
   };
 
   return (
@@ -73,7 +81,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-privacy">
+                <a href="/privacy" onClick={handlePrivacyClick} className="text-muted-foreground hover:text-primary transition-colors cursor-pointer" data-testid="link-footer-privacy">
                   Privacy Policy
                 </a>
               </li>
